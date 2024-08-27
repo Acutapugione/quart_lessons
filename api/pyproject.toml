@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "api"
+version = "0.1.0"
+description = ""
+authors = ["Acutapugione <acuta.pugione@gmail.com>"]
+readme = "README.md"
+packages = [{include = "api", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+quart = "^0.19.6"
+quart-schema = "^0.20.0"
+pydantic = "^2.8.2"
+
+[tool.poetry.scripts]
+start = "api:run"
+
+[tool.poetry.group.dev.dependencies]
+pytest-asyncio = "^0.24.0"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

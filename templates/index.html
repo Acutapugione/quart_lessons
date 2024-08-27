@@ -1,0 +1,28 @@
+{% extends '__base.html' %}
+{% block content %}
+Welcome to first Quart project
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const socket = new WebSocket('ws://localhost:5000/ws');
+
+    // Listen to connection open event
+    socket.onopen = () => {
+        console.log('Connected to the WebSocket server');
+    };
+
+    // Listen to incoming message event
+    socket.onmessage = (event) => {
+        console.log(`Received message: ${event.data}`);
+    };
+
+    // Listen to connection close event
+    socket.onclose = () => {
+        console.log('Disconnected from the WebSocket server');
+    };
+
+    socket.send("hello from frontend")
+</script>
+{% endblock %}
